@@ -1,4 +1,4 @@
 parameter,value
 carbon_price,0
 use_co2_intensity_constraint,True
-CO2_INTENSITY_TCO2_PER_MWH,0.04
+CO2_intensity_tco2_per_mwh,0.04

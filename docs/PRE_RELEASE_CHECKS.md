@@ -5,7 +5,7 @@
 ## Blocking checks
 
 - [ ] **Regional demand assignments**: The supplied `load_2040.csv` has Chubu ~39.17 TWh/year and Hokuriku ~168.96 TWh/year. Recheck the regional demand assignment and the source calculation; compare to region-specific FY2024 and FY2040 assumptions.
-- [ ] **Six-case reproducibility**: Create runnable, documented settings for WG, REI, WG-CO2, REI-CO2, WG-SEP, REI-SEP. Current active `policy_2040.csv` turns both constraints off. Create a six-case results table demonstrating the paper's values.
+- [ ] **Six-case numerical reproducibility**: Runnable and individually staged settings now exist for WG, REI, WG-CO2, REI-CO2, WG-SEP, REI-SEP. They have passed dry-run staging, but numerical replication remains unverified (especially WG-CO2 and WG-SEP). Current active `policy_2040.csv` still turns both constraints off for direct execution. Create a six-case results table demonstrating the paper's values.
 - [ ] **Nuclear assumptions**: Nuclear capacity is non-extendable. In the input, Hokkaido and Tokyo have nonzero existing nuclear capacity yet all-zero 8760h `nuc_pu` availability. Clarify if 2040 availability intentionally reflects the base-year observed dispatch rather than future reopening.
 - [ ] **License and input redistribution**: Verify permission to publish the project code and each CSV, especially the source statistics and any derived external data.
 - [ ] **Environment**: Record Python, PyPSA, Linopy, highspy/HiGHS, pandas, NumPy, xarray versions from the working research machine; test with a clean environment.
@@ -17,7 +17,7 @@
 - [x] **Shared onshore/offshore wind profile is intentional and provisional**: The researcher confirms both input p.u. series are identical by design at this stage. README and provenance note the approximation; technology-specific wind output patterns are not represented. Before publication, ensure the manuscript mentions this limitation.
 
 - [ ] Code defaults to `rep4` (not 8760h) and `CASE_LABEL=rei_cp4300_nucmid`, but `policy_2040.csv` has `carbon_price=0`; default case label is misleading.
-- [ ] `policy_2040_intensity.csv` contains `CO2_INTENSITY_TCO2_PER_MWH` in uppercase. The input parser looks for lowercase `co2_intensity_tco2_per_mwh`. An explicit `use_co2_intensity_constraint=True` activates the code's default 0.04; changing the uppercase value alone will not update the target. Fix the key in a validated revision.
+- [x] `policy_2040_intensity.csv` lowercase key corrected to `co2_intensity_tco2_per_mwh`. The original code uses 0.04 as its fallback and auto-enables CO2 if this lowercase target key is present. The new scenario runner omits this key for CO2-OFF cases. See `POLICY_KEY_NOTE.md`.
 - [ ] In `basic_mix_2040.csv`, hydro (11%), geothermal (2%), biomass (6%) have upper bounds only; they are not fixed shares. Check the manuscript wording.
 - [x] Onshore, offshore fixed and offshore floating wind use the same hourly p.u. data as a documented, temporary simplification; do not present these as technology-specific resource profiles.
 - [ ] Some regions have `geothermal_pu` identically zero, which can prevent additional geothermal generation even if capacity expansion is allowed; check spatial potential assumptions.

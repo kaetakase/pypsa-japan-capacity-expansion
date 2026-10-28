@@ -2,7 +2,7 @@
 
 This repository contains a PyPSA-based 9-region capacity expansion model of Japan's electricity system, using an FY2040 hourly demand scenario and renewable-generation profiles. It is intended to make model assumptions, inputs, policy constraints, and shadow prices available for examination and reproduction.
 
-**REVIEW STATUS: NOT YET VALIDATED FOR PUBLIC RELEASE.** The included code and CSV values are copied from the research materials without scientific corrections. See [`docs/PRE_RELEASE_CHECKS.md`](docs/PRE_RELEASE_CHECKS.md) before making this repository public. The model has passed Python syntax checking, but a verified optimization run and reproduction of the six manuscript cases are pending.
+**REVIEW STATUS: SIX CASE INPUTS NOW STAGED, BUT MODEL RESULTS NOT YET VALIDATED FOR PUBLIC RELEASE.** The original model source and scientific input values are unchanged. The reference file `input/policy_2040_intensity.csv` has had its parameter key capitalization corrected; see `docs/POLICY_KEY_NOTE.md`. See [`docs/PRE_RELEASE_CHECKS.md`](docs/PRE_RELEASE_CHECKS.md) before making this repository public. The model has passed Python syntax checking and six-case input staging tests, but a verified optimization run and numerical reproduction of all six manuscript cases are pending.
 
 ## Model at a glance
 
@@ -36,6 +36,23 @@ source .venv/bin/activate
 python -m pip install -r requirements-example.txt
 ```
 
+## Six manuscript cases: recommended reproducible workflow
+
+From the project root, preview the six settings without installing PyPSA or running optimization:
+
+```bash
+python3 scripts/run_scenarios.py --list
+python3 scripts/run_scenarios.py --all --time-mode full8760 --dry-run
+```
+
+When the model environment is installed and checked, run one case first:
+
+```bash
+python3 scripts/run_scenarios.py --case REI-CO2 --time-mode rep4 --force
+```
+
+For the main FY2040 annual study, use `--time-mode full8760` instead. Individual cases stage under `runs/<time-mode>/<case>/`, each with the active input CSVs, a SHA256 manifest and a separate results folder. Six cases are defined in `scenarios/scenario_matrix.csv`. These are *intended* research case configurations, not yet proof of numerical reproduction. See `docs/SCENARIOS.md`.
+
 First inspect the data using the standard-library-only checker:
 
 ```bash
@@ -48,7 +65,7 @@ Running the original script requires `input/` to be a sibling of the `.py` file,
 CE_TIME_MODE=rep4 CE_CASE_LABEL=test python pypsa_japan_capacity_expansion_2040.py
 ```
 
-**CAUTION:** The bundled `input/policy_2040.csv` disables both the CO2 intensity constraint and the electricity mix constraint, and the active technology cost file is the REI variant. The model's default `CASE_LABEL` implies a carbon price of 4,300 JPY/tCO2, but this CSV actually overrides the carbon price to zero. As a result, simply running the above command does NOT reproduce the paper's six scenarios. See [SCENARIOS.md](docs/SCENARIOS.md).
+**CAUTION:** The bundled `input/policy_2040.csv` disables both the CO2 intensity constraint and the electricity mix constraint, and the active technology cost file is the REI variant. The model's default `CASE_LABEL` implies a carbon price of 4,300 JPY/tCO2, but this CSV actually overrides the carbon price to zero; the runner sets a correct label for each paper case. As a result, simply running the original model directly does NOT reproduce the paper's six scenarios. Instead use the scenario runner described above. See [SCENARIOS.md](docs/SCENARIOS.md).
 
 For FY2040 annual analysis, set `CE_TIME_MODE=full8760`, after model and source data have been validated. Large annual optimizations may require significant memory and solve time.
 

@@ -1,0 +1,7 @@
+case,cost_input,capacity_input,co2_intensity_active,co2_intensity_tco2_per_mwh,basic_mix_active,carbon_price_jpy_per_tco2,basic_mix_input
+WG,technology_cost_2040WG.csv,capacity_expansion_2040.csv,false,0.04,false,0,basic_mix_2040.csv
+REI,technology_cost_2040.csv,capacity_expansion_2040.csv,false,0.04,false,0,basic_mix_2040.csv
+WG-CO2,technology_cost_2040WG.csv,capacity_expansion_2040.csv,true,0.04,false,0,basic_mix_2040.csv
+REI-CO2,technology_cost_2040.csv,capacity_expansion_2040.csv,true,0.04,false,0,basic_mix_2040.csv
+WG-SEP,technology_cost_2040WG.csv,capacity_expansion_2040.csv,true,0.04,true,0,basic_mix_2040.csv
+REI-SEP,technology_cost_2040.csv,capacity_expansion_2040.csv,true,0.04,true,0,basic_mix_2040.csv

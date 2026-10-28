@@ -1,0 +1,11 @@
+﻿fuel,tco2_per_mwh
+coal,0.9
+gas_ccgt,0.4
+oil,0.7
+coal_ccs,0.09
+gas_ccgt_ccs,0.04
+hydrogen,0
+ammonia,0
+coal_biomass_5,0.874
+coal_ammonia_20,0.72
+gas_ccgt_hydrogen_10,0.36

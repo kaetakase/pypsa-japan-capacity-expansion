@@ -1,0 +1,12 @@
+﻿name,bus0,bus1,x,r,s_nom,type,efficiency,p_min_pu,s_nom_existing,s_nom_max,distance_km,capital_cost
+line_hokkaido_tohoku,Hokkaido,Tohoku,0.1,0.01,775,HVDC,0.98,-0.66,1200,99000,200,10368550
+line_hokkaido_tokyo,Hokkaido,Tokyo,0.1,0.01,0,HVDC,0.95,0,0,99000,750,32446785
+line_tohoku_tokyo,Tohoku,Tokyo,0.1,0.01,6530,HVDC,0.98,0,8300,99000,50,1457609
+line_tokyo_chubu,Tokyo,Chubu,0.1,0.01,1523,HVDC,0.98,-1.14,3000,99000,50,8912050
+line_chubu_hokuriku,Chubu,Hokuriku,0.1,0.01,1500,HVDC,0.98,-1,3000,99000,150,3244679
+line_hokuriku_kansai,Hokuriku,Kansai,0.1,0.01,1887,HVDC,0.98,-0.86,3000,99000,150,3244679
+line_chubu_kansai,Chubu,Kansai,0.1,0.01,1181,HVDC,0.98,-2.26,3000,99000,50,850827
+line_kansai_chugoku,Kansai,Chugoku,0.1,0.01,2561,HVDC,0.98,-1.88,2561,99000,100,2595743
+line_kansai_shikoku,Kansai,Shikoku,0.1,0.01,1,HVDC,0.98,-699,1,99000,100,2595743
+line_chugoku_shikoku,Chugoku,Shikoku,0.1,0.01,635,HVDC,0.98,-2.39,635,99000,100,2595743
+line_chugoku_kyushu,Chugoku,Kyushu,0.1,0.01,288,HVDC,0.98,-10.84,288,99000,20,19087362

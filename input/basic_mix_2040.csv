@@ -1,0 +1,8 @@
+category,lower_share,upper_share,carriers,note
+renewable,0.4,0.5,,Renewables total; default carriers are solar wind hydro geothermal biomass
+nuclear_thermal,0.5,0.6,nuclear;coal;coal_ccs;coal_biomass_5;coal_biomass;coal_ammonia_20;gas_ccgt;gas_ocgt;gas_ccgt_ccs;gas_ccgt_hydrogen_10;oil;hydrogen;ammonia,Nuclear plus thermal generation share over annual load; nuclear can remain non-extendable
+solar,0.22,0.29,,Optional PV-only bound; delete row if not used
+wind,0.04,0.08,,Optional wind-only bound; delete row if not used
+hydro,,0.11,,Optional hydro-only bound; delete row if not used
+geothermal,,0.02,,Optional geothermal-only bound; delete row if not used
+biomass,,0.06,,Optional biomass-only bound; delete row if not used

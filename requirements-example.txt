@@ -1,0 +1,6 @@
+# Unpinned provisional list. Replace with versions from the validated environment.
+pypsa
+highspy
+pandas
+matplotlib
+xarray

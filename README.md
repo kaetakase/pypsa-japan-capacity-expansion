@@ -2,7 +2,9 @@
 
 This repository contains a PyPSA-based 9-region capacity expansion model of Japan's electricity system, using an FY2040 hourly demand scenario and renewable-generation profiles. It is intended to make model assumptions, inputs, policy constraints, and shadow prices available for examination and reproduction.
 
-**REVIEW STATUS: SIX CASE INPUTS NOW STAGED, BUT MODEL RESULTS NOT YET VALIDATED FOR PUBLIC RELEASE.** The original model source and scientific input values are unchanged. The reference file `input/policy_2040_intensity.csv` has had its parameter key capitalization corrected; see `docs/POLICY_KEY_NOTE.md`. See [`docs/PRE_RELEASE_CHECKS.md`](docs/PRE_RELEASE_CHECKS.md) before making this repository public. The model has passed Python syntax checking and six-case input staging tests, but a verified optimization run and numerical reproduction of all six manuscript cases are pending.
+**REVIEW STATUS (October 2026):** This repository is a research draft accompanying a manuscript under peer review. All six scenarios have been successfully tested using four representative weeks (rep4), with optimal solutions obtained. Full 8,760-hour reproduction of the manuscript results has not yet been verified using this public repository. Further documentation and validation will be added as the research progresses.
+
+The model source code and input datasets are provided to support transparency and reproducibility. Data sources and redistribution conditions are documented, or identified for further verification, in [DATA_PROVENANCE.md](docs/DATA_PROVENANCE.md).
 
 ## Model at a glance
 
